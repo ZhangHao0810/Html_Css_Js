@@ -1,0 +1,25 @@
+.logo {
+    float: left;
+    width: 33%;
+    /*border-width: 1px;
+    border-style: solid;
+    border-color: red;*/
+    height: 60px;
+    line-height: 60px;
+    /*		border: 1px solid red;*/
+}
+
+.amenu {
+    color: white;
+    text-decoration: none; /*去掉tex的下划线*/
+    /*height: 50px;*/
+    line-height: 50px; /*设置行高是50，字体会默认在这个行高的中间显示*/
+}
+
+.product {
+    float: left;
+    text-align: center;
+    width: 16%;
+    height: 240px;
+}
+			
