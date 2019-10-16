@@ -1,164 +1,33 @@
+2019年10月16日20:28:31
 
-## JQuery的使用，结合案例学习。
-
-
-#### [使用JQuery完成页面定时弹出广告](01-网页定时弹出广告\网页定时弹出广告.html)
-
-定时器: 
-
-​	setInterval     clearInterval
-
-​	setTimeout    clearTimeout
-
-显示:  img.style.display  = "block"
-
-隐藏:  img.style.display  = "none"
-
-img 对象
-
-​	style属性:  style对象
-
-#### 使用JQuery完成表格的隔行换色
-
-获得所有的行
-
-​	table.rows[]
-
-修改行的颜色
-
-​	row.bgColor ="red"
-
-​	row.style.backgroundColor = "black"
-
-​	row.style.background = "red"
-
-​	"background-color:red"
-
-​	"background:red"
-
-#### 使用JQuery完成复选框的全选效果
-
-checked属性
-
-如何获取所有复选框:
-
-​	document.getElementsByName   get Elements  By Name  数据库里面
-
-#### 使用JQuery完成省市联动效果
-
-​	JS中的数组:  ["城市"]
-
-​	new Array()
-
-​	DOM树操作:
-
-​		创建节点:  document.createElement
-
-​		创建文本节点: document.createTextNode
-
-​		添加节点:  appendChild
-
-#### 使用JQuery完成下列列表左右选择
-
-​	select下拉列表
-
-​	multiple 允许多选
-
-​	ondblclick : 双击事件
-
-​	for循环遍历,一边遍历一边移除出现的问题
-
-#### 使用JQuery完成表单的校验(扩展)
-
-​	事件:
-
-​	获得焦点事件: onfocus
-
-​	失去焦点事件: onblur
-
-​	按键抬起事件: onkeyup
-
-​	鼠标移入:  onmouseenter
-
-​	鼠标移出: onmouseout
-
-​	JS引入外部文件 : script 
-
-
-
-### 1. 使用JQuery完成页面定时弹出广告
-
-#### 1.1 需求分析：
-
-当用户打开界面，3秒钟之后弹出广告，这个广告显示5秒钟，隐藏广告
-
-#### 1.2 技术分析
-
-定时器: setTimeout 
-
-显示和隐藏:  style.display = "block/none"
-
-
-
-什么JQuery:
+## 什么是JQuery:
 
 jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（*或JavaScript框架*）。jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。
 
 jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。jQuery兼容各种主流浏览器，如IE 6.0+、FF 1.5+、Safari 2.0+、Opera 9.0+等
 
+### JQuery的作用:
 
+​	1. 写更少的代码,做更多的事情: write Less ,Do more   
+    2. 将我们页面的JS代码和HTML页面代码进行分离  
 
-JQuery的作用:
-
-​	1. 写更少的代码,做更多的事情: write Less ,Do more
-
-	2. 将我们页面的JS代码和HTML页面代码进行分离
-
-
-
-为什么学习JQuery:
+### 为什么学习JQuery:
 
 ​	提高我们的工作效率
 
 
+#### JQ的开发步骤: 
 
-JQ的入门
+	1. 导入JQ相关的文件
+	2.  文档加载完成事件: $(function)  : 页面初始化的操作: 绑定事件, 启动页面定时器
+	3. 确定相关操作的事件
+	4. 事件触发函数
+	5. 函数里面再去操作相关的元素
 
-```html
-<script>
-			//js文档加载完成的事件
-			window.onload = function(){
-				alert("window.onload   111");
-			}
-			
-			window.onload = function(){
-				alert("window.onload   222");
-			}
-			
-			/*文档加载完成的事件*/
-			jQuery(document).ready(function(){
-			 	alert("jQuery(document).ready(function()");
-			});
-			/*
-			 	jQuery  简写成 $
-			 */
-			$(document).ready(function(){
-			 	alert("$(document).ready(function()");
-			});
-			
-			/*
-				最简单的写法 
-			*/
-			$(function(){
-				alert("$(function(){");
-			});
-			
-		</script>
-```
+### [JQ的入门](01-网页定时弹出广告/JQ的入门/JQ的入门.html)
 
 
-
-[【JQ中根据ID查找元素】](01-网页定时弹出广告\JQ的入门\JQ查找元素.html)
+##### [ JQ中根据ID查找元素](01-网页定时弹出广告/JQ的入门/JQ查找元素.html)
 
 ```html
 全都是根据选择器去找的
@@ -167,182 +36,14 @@ JQ的入门
 $("#ID的名称")
 ```
 
-
-
-[【JQ和JS之间的转换】](01-网页定时弹出广告\JQ的入门\JQ和JS对象之间的转换.html)
+##### [JQ和JS之间的转换](01-网页定时弹出广告/JQ的入门/JQ和JS对象之间的转换.html)
 
 - JQ对象,只能调用JQ的属性和方法
 - JS对象 只能调用JS的属性和方法
 
-```html
-function changeJS(){
-				var div = document.getElementById("div1");
-//				div.innerHTML = "JS成功修改了内容"
-				//将JS对象转成JQ对象
-				$(div).html("转成JQ对象来修改内容")
-			}
-			
-			$(function(){
-				//给按钮绑定事件
-				$("#btn2").click(function(){
-					//找到div1
-//					$("#div1").html("JQ方式成功修改了内容");
-					//将JQ对象转成JS对象来调用
-					var $div = $("#div1");
-//					var jsDiv = $div.get(0);
-					var jsDiv = $div[0];
-					jsDiv.innerHTML="jq转成JS对象成功";
-				});
-			});
-```
 
-JQ的开发步骤: (将我们页面的JS代码和HTML页面代码进行分离)
+##### [JQ中的动画效果](01-网页定时弹出广告/JQ的入门/动画效果.html)
 
-	1. 导入JQ相关的文件
-	2.  文档加载完成事件: $(function)  : 页面初始化的操作: 绑定事件, 启动页面定时器
-	3. 确定相关操作的事件
-	4. 事件触发函数
-	5. 函数里面再去操作相关的元素
-
-显示和隐藏  img.style.display
-
-[【JQ中的动画效果】](01-网页定时弹出广告\JQ的入门\动画效果.html)
-
-```javascript
-show()
-hide()
-slideUp
-slideDown
-fadeIn
-fadeOut
-animate : 自定义动画
-```
-
-#### 1.3 步骤分析：
-
-1. 导入JQ的文件
-2. 编写JQ的文档加载事件
-3. 启动定时器 setTimeout("",3000);
-4. 编写显示广告的函数
-5. 在显示广告里面再启动一个定时器
-6. 编写隐藏广告的函数
-
-
-
-#### 1.4 代码实现
-
-```html
-<script>
-			//显示广告
-			function showAd(){
-				$("#img1").slideDown(2000);
-				setTimeout("hideAd()",3000);
-			}
-			//隐藏广告
-			function hideAd(){
-				$("#img1").slideUp(2000);
-			}
-			$(function(){
-				setTimeout("showAd()",3000);
-			});
-		</script>
-```
-
-
-
-
-
-### JQuery中的选择器
-
-让我们能够更加精确找到我们要操作的元素	
-
-##### [基本选择器](01-网页定时弹出广告\JQ的入门\选择器\基本选择器.html)
-
-- ID选择器 :     #ID的名称
-- 类选择器:     以 . 开头  .类名
-- 元素选择器:    标签的名称
-- 通配符选择器:   * 
-- 选择器,选择器:  选择器1,选择器2
-
-
-
-##### [JQ中的层级选择器](01-网页定时弹出广告\JQ的入门\选择器\层级选择器.html)
-
-- 子元素选择器:   选择器1 > 选择器2
-- 后代选择器:  选择器1 儿孙
-- 相邻兄弟选择器 :  选择器1 + 选择器2 : 找出紧挨着的一个弟弟
-- 找出所有弟弟:  选择器1~ 选择器2   : 找出所有的弟弟
-
-```html
-<script>
-			//文档加载事件,页面初始化的操作
-			$(function(){
-				//初始化操作: 给按钮绑定事件
-				//找出body下面的子div   
-				$("#btn1").click(function(){
-					$("body > div").css("background-color","palegreen");					
-				});
-				//找出body下面的所有div
-				$("#btn2").click(function(){
-					$("body div").css("background-color","palegreen");					
-				});
-				$("#btn3").click(function(){
-					$("#one+div").css("background-color","palegreen");					
-				});
-				$("#btn4").click(function(){
-					$("#two~div").css("background-color","palegreen");					
-				});
-				
-			});
-		</script>
-```
-
-
-
-##### [JQ中的基本过滤器](01-网页定时弹出广告\JQ的入门\选择器\基本过滤器.html)
-
-
-
-
-##### [JQ中的属性选择器](01-网页定时弹出广告\JQ的入门\选择器\属性选择器.html)
-
-```html
-		$(function(){
-				//找到有name属性的input
-				$("#btn1").click(function(){
-					$("input[name]").attr("checked",true);
-				});
-				$("#btn2").click(function(){
-					$("input[name='accept']").attr("checked",true);
-				});
-				$("#btn3").click(function(){
-					$("input[name='newsletter'][value='Hot Fuzz']").attr("checked",true);
-				});
-			});
-```
-
-##### [JQ中的表单过滤器](01-网页定时弹出广告\JQ的入门\选择器\表单选择器.html)
-
-```html
-<script>
-  //1.文档加载事件	
-  $(function(){
-    $(":text").css("background-color","pink");
-  });
-</script>
-```
-
-
-
-JQuery入门内容回顾:
-
-什么是JQ: write less , do more: 写更少的代码,做更多的事
-
-​	javascript函数库
-
-1.11版本
-
-定时器:
 
 动画效果:
 
@@ -358,31 +59,38 @@ JQuery入门内容回顾:
 
 ​	fadeOut
 
-JQ选择器:
 
-基本选择器:
+#### 1.3 步骤分析：
 
-​	ID选择器:  #ID的名字
-
-​	类选择器:  .类名
-
-​	元素选择器:   标签名称
-
-​	通配符选择器:  *
-
-​	选择器分组:  选择器1,选择器2
-
-层级选择器:
-
-​	后代选择器:  选择器1 儿孙
-
-​	子元素选择器: 选择器1 > 儿子
-
-​	相邻兄弟选择器:  选择器1 + 选择器2  找出紧挨着它的弟弟
-
-​	所有弟弟选择器:  选择器1~选择器2  找出所有弟弟
+1. 导入JQ的文件
+2. 编写JQ的文档加载事件
+3. 启动定时器 setTimeout("",3000);
+4. 编写显示广告的函数
+5. 在显示广告里面再启动一个定时器
+6. 编写隐藏广告的函数
 
 
+
+### JQuery中的选择器
+
+让我们能够更加精确找到我们要操作的元素	
+
+##### [基本选择器](01-网页定时弹出广告/JQ的入门/选择器/基本选择器.html)
+
+- ID选择器 :     #ID的名称
+- 类选择器:     以 . 开头  .类名
+- 元素选择器:    标签的名称
+- 通配符选择器:   * 
+- 选择器,选择器:  选择器1,选择器2
+
+##### [JQ中的层级选择器](01-网页定时弹出广告/JQ的入门/选择器/层级选择器.html)
+
+- 子元素选择器: 选择器1 > 儿子
+- 后代选择器: 选择器1 儿孙
+- 相邻兄弟选择器 :  选择器1 + 选择器2 : 找出紧挨着的一个弟弟
+- 所有弟弟选择器: 选择器1~ 选择器2 找出所有的弟弟
+
+##### [JQ中的基本过滤器](01-网页定时弹出广告/JQ的入门/选择器/基本过滤器.html)
 
 基本过滤器:
 
@@ -400,19 +108,26 @@ JQ选择器:
 
 ​	:eq(index)  等于
 
-
+##### [JQ中的属性选择器](01-网页定时弹出广告/JQ的入门/选择器/属性选择器.html)
 
 属性选择器:
 
-​	选择器[href]  : 单个属性
-
 ```html
+选择器[href]  : 单个属性
 选择器[href][title] : 多个属性
 选择器[href][title='test'] : 多个属性,包含值
 ```
 
-表单过滤器:
+##### [JQ中的表单过滤器](01-网页定时弹出广告/JQ的入门/选择器/表单选择器.html)
 
+```html
+<script>
+  //1.文档加载事件	
+  $(function(){
+    $(":text").css("background-color","pink");
+  });
+</script>
+```
 ​	:input   找出所有输入项:  input  textarea  select 
 
 ​	:text 
@@ -425,19 +140,33 @@ JQ选择器:
 
 ​	option:selected
 
+## JQuery的使用，结合案例学习。
 
 
-JQ的开发步骤:
+#### [1.使用JQuery完成页面定时弹出广告](01-网页定时弹出广告/网页定时弹出广告.html)
 
-	1. 导入JQ相关的包
-	2. 文档加载文成的事件:  页面初始化:  绑定事件, 启动定时器
-	3.  确定事件
-	4. 实现事件要触发的函数
-	5. 函数里面再去操作我们要操作的元素
+#### 1.1 需求分析：
 
+当用户打开界面，3秒钟之后弹出广告，这个广告显示5秒钟，隐藏广告
 
+#### 1.2 技术分析
 
-### 使用JQ完成表格的隔行换色
+定时器: 
+
+​	setInterval     clearInterval
+
+​	setTimeout    clearTimeout
+
+显示:  img.style.display  = "block"
+
+隐藏:  img.style.display  = "none"
+
+img 对象
+
+​	style属性:  style对象
+
+#### [2.使用JQuery完成表格的隔行换色](02-表格的隔行换色/表格的隔行换色.html)
+
 
 #### 需求分析:
 
@@ -445,13 +174,22 @@ JQ的开发步骤:
 
 #### 技术分析:
 
-获取所有行 table.rows
+获取所有行 table.rows[]
 
-遍历所有行
+​	row.bgColor ="red"
+
+​	row.style.backgroundColor = "black"
+
+​	row.style.background = "red"
+
+​	"background-color:red"
+
+​	"background:red"
 
 根据行号去修改每一行的背景颜色: bgColor
 
 ​	style.backgroundColor = "red"
+
 
 #### 步骤分析:
 
@@ -462,38 +200,21 @@ JQ的开发步骤:
 
 
 
-#### 代码实现:
 
-```html
-	$(function(){
-				//获得所有的行 :   元素选择器
-				$("tbody > tr:even").css("background-color","#CCCCCC");
-				//修改基数行
-				$("tbody > tr:odd").css("background-color","#FFF38F");
-//				$("tbody > tr").css("background-color","#FFF38F");
-				
-				
-			});
-```
-
-
-
-### 使用JQuery完成表单的全选全不选功能
+#### [3.使用JQuery完成复选框的全选效果](/03-全选和全不选/全选和全不选.html)
 
 #### 需求分析
 
 ​	在我们对表格处理的时,有些情况下,我们需要对表格进行批量处理,
 
-#### 技术分析:
+checked属性
 
+如何获取所有复选框:
 
+​	document.getElementsByName   get Elements  By Name  数据库里面
 
+#### [4.使用JQuery完成省市联动效果](/04-省市联动效果/省市联动.html)
 
-#### 代码实现:
-
-
-
-### 使用JQ完成省市联动效果
 
 #### 需求分析:
 
@@ -523,42 +244,23 @@ JQ的开发步骤:
 5. 得到城市, 遍历城市数据
 6. 将遍历出来的城市添加到城市的select中
 
-#### 代码实现:
+​	JS中的数组:  ["城市"]
 
-```javascript
-$(function(){
-				$("#province").change(function(){
-//					alert(this.value);
-					//得到城市信息
-					var cities = provinces[this.value];
-					//清空城市select中的option
-					/*var $city = $("#city");
-					//将JQ对象转成JS对象
-					var citySelect = $city.get(0)
-					citySelect.options.length = 0;*/
-					
-					$("#city").empty();  //采用JQ的方式清空
-					//遍历城市数据
-					$(cities).each(function(i,n){
-						$("#city").append("<option>"+n+"</option>");
-					});
-				});
-			});
-```
+​	new Array()
 
+​	DOM树操作:
 
+​		创建节点:  document.createElement
 
+​		创建文本节点: document.createTextNode
 
+​		添加节点:  appendChild
 
-#### 使用JQ完成下拉列表左右选择
+#### [5.使用JQuery完成下列列表左右选择](05-下拉列表左右选择/商品的左右选择.html)
 
 #### 需求分析
 
 我们的商品通常包含已经有了的, 还有没有的,现在我们需要有一个页面用于动态编辑这些商品
-
-#### 技术分析
-
-
 
 #### 步骤分析
 
@@ -569,9 +271,80 @@ $(function(){
 	1. 移动被选中的那一项到右边
 
 
+​	select下拉列表
+
+​	multiple 允许多选
+
+​	ondblclick : 双击事件
+
+​	for循环遍历,一边遍历一边移除出现的问题
 
 
-#### 今天内容总结:
+#### [6.使用JQuery完成表单的校验(扩展)](07-JQ方式完成表单校验/表单校验.html)
+
+
+#### 需求分析
+
+在用户提交表单的时候, 我们最好是能够在用户数据提交给服务器之前去做一次校验,防止服务器压力过大,并且需要给用户一个友好提示
+
+#### 技术分析
+- trigger :
+  会执行类似浏览将光标移到输入框内的这种浏览器默认行为，并且触发事件对应的函数
+- triggerHandler : 仅仅只会触发事件所对应的函数
+- is()
+
+#### 步骤分析
+
+1. 首先给必填项,添加尾部添加一个小红点
+2. 获取用户输入的信息,做相应的校验
+3. 事件: 获得焦点, 失去焦点, 按键抬起
+4. 表单提交的事件
+
+
+
+​	事件:
+
+​	获得焦点事件: onfocus
+
+​	失去焦点事件: onblur
+
+​	按键抬起事件: onkeyup
+
+​	鼠标移入:  onmouseenter
+
+​	鼠标移出: onmouseout
+
+​	JS引入外部文件 : script 
+
+
+	数据交换格式:
+
+​		json
+
+​		xml
+
+- 什么是JSON
+
+  [JSON](http://baike.baidu.com/view/136475.htm)([JavaScript](http://baike.baidu.com/view/16168.htm) Object Notation) 是一种轻量级的数据交换格式。它基于[ECMAScript](http://baike.baidu.com/view/810176.htm)的一个子集。 JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括[C](http://baike.baidu.com/subview/10075/6770152.htm)、C++、[C#](http://baike.baidu.com/view/6590.htm)、[Java](http://baike.baidu.com/subview/29/12654100.htm)、JavaScript、[Perl](http://baike.baidu.com/view/46614.htm)、[Python](http://baike.baidu.com/view/21087.htm)等）。这些特性使JSON成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成(一般用于提升网络传输速率)。
+
+- JSON格式
+
+  ​	JSON对象
+
+```
+{ key1:value}   
+{"username":"zhangsan","password":"123"}
+```
+
+  ​	JSON数组
+
+  ```
+  [{ key1:value},{ key1:value},{ key1:value}]
+  ```
+
+
+
+#### 内容总结:
 
 定时器
 
@@ -591,110 +364,118 @@ $(function(){
 
 层级选择器:
 
-​	后代选择器:  选择器1 选择器2  找出所有的后代,儿子孙子曾孙
+​	后代选择器: 选择器1 选择器2  找出来的选择器1 下面的所有选择器2  子孙
 
-​	子元素选择器: 选择器1 >选择器2  找出所有儿子
+​	子元素选择器: 选择器1 > 选择器2   找出来的是所有的子节点  儿子
 
-​	相邻兄弟选择器:  选择器1+选择器2  : 找出紧挨着自己那个弟弟
+​	相邻兄弟选择器: 选择器1+选择器2    找出来的紧挨着自己的弟弟
 
-​	兄弟选择器 :　　　选择器1~选择器2  :  找出所有的弟弟
+​	兄弟选择器:   选择器1~选择器2    找出所有的弟弟
+
+​		(找出所有兄弟:   $("div").siblings()    )
 
 属性选择器:
 
 ​	选择器[属性名称]
 
 ```html
-选择器[属性名称][属性名名]
-选择器[属性名称='属性值'][属性名称='属性值'][属性名称='属性值']
+选择器 div
+选择器[title]
+选择器[title='test']
+选择器[title='test'][style]
 ```
 
+
+基本的过滤器:    选择器:过滤器   $("div:first")
+
+​	:first : 找出第一个元素
+
+​	:last  找出最后一个元素
+
+​	:even   找出偶数索引
+
+​	:odd   找出奇数
+
+​	:gt(index)   greater-than大于
+
+​	:lt(index)    小于
+
+​	:eq(index)  等于
 
 
 表单选择器:
 
-​	:input   找出所有的输入项 : 不单单找出input  textarea select 
+​	:input   找出所有的输入项 : 不单单找出input  textarea select button
 
 ​	:text  找出type类型为 text
 
 ​	:password
 
+	:radio
 
-
-基本过滤器:
-
-​	:even
-
-​	:odd
-
-​	:gt
-
-​	:lt
-
-​	:eq
-
-​	:first
-
-​	:last
-
-表单对象属性:
+表单对象属性的过滤器
 
 ​	:selected
 
 ​	:checked
 
+常用函数:
 
-
-```html
 $(function)  : 文档加载完成的事件
-css()  : 	修改css样式
-prop() :    修改属性/ 获取属性
-html() :    修改innerHTML
 
-append : 	给自己添加子节点
-appendTo :  将自己添加到别人家,给自己找一个爹
-prepend :   在自己最前面添加子节点
-after	:   在自己后面添加一个兄弟
-empty	:   清空所有子节点
+html() : 修改innerHTML ​	属性
 
-$(cities).each(function(i,n){
-  	
-})
+    prop() properties+
 
-$.each(arr,function(i,n){
-  
-});
+​		如果传入一个参数  就是获取
 
-了解, 熟悉, 熟练, 精通 
+​	prop("src","../img/1.jpg");  
 
-经过一个项目,将所有学过串起来
-```
+​		设置图片路径
+
+​	attr : 操作一些自定义的属性  <img  abc='123' />
+
+​	prop: 通常是用来操作元素固有属性的 ,建议大家使用prop来操作属性
 
 
 
+​	css() ; 修改css样式
+
+​	addClass()  : 添加一个class样式
+
+​	removeClass() : 移除
+
+​	
+
+​	blur : 绑定失去焦点
+
+​	focus: 绑定获得焦点事件
+
+​	click:
+
+​	dblclick
+
+​	change
+
+​	
+
+​	append    :  给自己添加儿子
+
+​	appendTo :  把自己添加到别人家
+
+​	prepend :  在自己子节点最前面添加子节点
+
+​	after  : 在自己后面添加一个兄弟
+
+​	before: 在自己前面添加一个兄弟
+
+​	empty	:   清空所有子节点
 
 
+​	$("数组对象").each(function(index,data))
 
+​	$.each(arr,function(index,data))
 
-#### 使用JQ完成表单的校验(扩展)
-
-#### 需求分析
-
-在用户提交表单的时候, 我们最好是能够在用户数据提交给服务器之前去做一次校验,防止服务器压力过大,并且需要给用户一个友好提示
-
-#### 技术分析
-
-- trigger
-- triggerHandler
-- is()
-
-#### 步骤分析
-
-1. 首先给必填项,添加尾部添加一个小红点
-2. 获取用户输入的信息,做相应的校验
-3. 事件: 获得焦点, 失去焦点, 按键抬起
-4. 表单提交的事件
-
-#### 代码实现
-
+`$(cities).each(function(i,n){ }) $.each(arr,function(i,n){ });`
 
 

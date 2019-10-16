@@ -67,9 +67,9 @@ BOM : Browser Object Model  浏览器对象模型, 前进,后退,页面刷新, �
 3. 函数里面通常都会去操作页面元素,做一些交互动作
 ```
 
-# 下面开始结合案例进行学习：
+## 下面开始结合案例进行学习：
 
-### [0.简单的数据校验](00-JS入门案例\使用JS完成简单的数据校验.md)
+### [0.简单的数据校验](00-JS入门案例/使用JS完成简单的数据校验.md)
 
 ### [0. 轮播图自动播放](01-自动轮播图片)
 
@@ -100,10 +100,11 @@ BOM : Browser Object Model  浏览器对象模型, 前进,后退,页面刷新, �
 - 隐藏广告 img.style.display  = "none"
 
 
-#### 1.5扩展
+#### 引入一个外部js文件 
 
-- JS的引入方式
-
+```html
+<script src="js文件的路径"  type="text/javascript"/>
+```
 
 ### [2. 完成表单的校验](03-JS表单校验)
 
@@ -116,71 +117,36 @@ BOM : Browser Object Model  浏览器对象模型, 前进,后退,页面刷新, �
 【HTML中innerHTML属性】
 
 【JS中的常用事件】
+​	onfocus: 获取焦点事件
 
-onfocus 事件: 获得焦点事件
+​	onblur : 失去焦点的事件
 
-onblur : 失去焦点
+​	onkeyup: 按键抬起的事件
 
-onkeyup : 按键抬起事件
+​	onclick:  单击事件
 
+​	ondblclick:  双击事件 
 
-### 回顾:
+表格隔行换色,鼠标移入和移除要变色:
 
-定时器:
+​	onmouseenter:  鼠标移入
 
-​	setInterval("test()",3000)   每隔多少毫秒执行一次函数
+​	onmouseout:  鼠标移出
 
-​	setTimeout("test()",3000)  多少毫秒之后执行一次函数
+​	onload:  文档加载完成事件
 
-​	timerID 上面定时器调用之后
+​	onsubmit:  提交
 
-​	clearInterval()
+​	onchange:   下拉列表内容改变
 
-​	clearTimeout()
-
-切换图片
-
-​	img.src = "图片路径"
-
-
-
-事件: 文档加载完成的事件 onload事件
-
-显示广告  :   img.style.display = "block"
-
-隐藏广告:    img.style.display ="none"
-
-引入一个外部js文件  
-
-```html
-<script src="js文件的路径"  type="text/javascript"/>
-```
-
-表单校验中常用的事件:
-
-​	获得焦点事件: onfocus
-
-​	失去焦点事件  onblur
-
-​	按键抬起事件:  onkeyup
-
-
-
-JS开发步骤
-
-	1. 确定事件
-	2. 事件要触发函数: 定义函数
-	3. 函数通常都要去做一些交互:  点击, 修改图片,  动态修改innerHTML属性...  innerTEXT
-
-​	
-
+checkbox.checked  选中状态
 ### [3.表格隔行换色](04-表格的隔行换色/表格隔行换色.html)
 
 #### 3.1 需求分析
 
 ​	我们商品分类的信息太多，如果每一行都显示同一个颜色的话会让人看的眼花，为了提高用户体验，减少用户看错的情况，需要对表格进行隔行换
 
-### [4. 复选框的全选和全不选](05-表格的全选和全不选\表格全选和全不选.html)
+### [4. 复选框的全选和全不选](05-表格的全选和全不选/表格全选和全不选.html)
 
 #### 4.1 需求分析
 
@@ -190,18 +156,24 @@ JS开发步骤
 
 ​	事件 : onclick点击事件
 
-### [5. 省市联动效果](06-省市联动案例\省市联动.html)
+### [5. 省市联动效果](06-省市联动案例/省市联动.html)
 
-#### 5.1 需求分析
 
 #### 5.2 技术分析
 
-什么是DOM: Document Object Model : 管理我们的文档   增删改查规则 
+什么是DOM: Document Object Model : 文件对象模型,用来管理我们的文档 增删改查规则
 
-[【HTML中的DOM操作】](06-省市联动案例\DOM操作.html)
+[【HTML中的DOM操作】](06-省市联动案例/DOM操作.html)
 
 ```html
 一些常用的 HTML DOM 方法：
+
+​	添加节点: appendChild
+
+​	创建节点: document.createElement
+
+​	创建文本节点: document.createTextNode()
+
   getElementById(id) - 获取带有指定 id 的节点（元素） 
   appendChild(node) - 插入新的子节点（元素） 
   removeChild(node) - 删除子节点（元素） 
@@ -236,85 +208,11 @@ setAttributeNode()  修改属性节点
 
 
 
-### [6. 使用JS控制下拉列表左右选择](07-商品的左右选择\商品的左右选择.html)
+### [6. 使用JS控制下拉列表左右选择](07-商品的左右选择/商品的左右选择.html)
 
 #### 6.1 需求分析:
 
 在我们的分类管理中,我们要能够去修改我们的分类信息,当我们一点修改的时候,跳转到一个可以编辑的页面,这里面能够修改分类的名称,分类的描述,以及分类的商品
-
-#### 6.2 步骤分析:
-
-
-
-简单回顾:
-
-定时器: 
-
-​	setInterval
-
-​	setTimeout
-
-​	clearInterval
-
-​	clearTimeout
-
-控制图片显示隐藏
-
-​	img.style.display = "block"
-
-​	img.style.display = "none"
-
-
-
-表单中常用的事件:
-
-​	onfocus: 获取焦点事件
-
-​	onblur : 失去焦点的事件
-
-​	onkeyup: 按键抬起的事件
-
-​	onclick:  单击事件
-
-​	ondblclick:  双击事件 
-
-表格隔行换色,鼠标移入和移除要变色:
-
-​	onmouseenter:  鼠标移入
-
-​	onmouseout:  鼠标移出
-
-​	onload:  文档加载完成事件
-
-​	onsubmit:  提交
-
-​	onchange:   下拉列表内容改变
-
-
-
-checkbox.checked  选中状态
-
-
-
-DOM的文档操作:
-
-​	添加节点: appendChild
-
-​	创建节点: document.createElement
-
-​	创建文本节点: document.createTextNode()
-
-
-
-JS开发步骤:
-
-	1. 确认事件
-	2. 事件触发函数
-	3. 函数里面要做一些交互 
-
-
-
-​	
 
 
 
